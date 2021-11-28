@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const productoDetalle = new Schema({
 	idproducto: {type:String, required:true},
+	nombreproducto: {type:String, required:true},
 	valorVenta: {type:Number, required:true},
 	cantidad: {type:Number, required: true},
 	subtotal: {type:Number, required: true},
