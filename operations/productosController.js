@@ -13,19 +13,25 @@ productosController.buscarProductos = async function (req, res) {
     res.json(datos);
 }
 productosController.createProducto = async (req, res) => {
-    res.send('create Producto');
-    const producto = new coleccionProductos(req.body);
+    console.log(req.body);
+    var producto = new coleccionProductos(req.body);
     console.log(producto);
-    await producto.save();
-    res.json({ "status": "Dato de producto guardado" });
+
+    producto = await producto.save();
+    //res.send("create Producto");
+
+    res.json({ "status": "Producto guardado",producto});
 
 }
 productosController.updateProducto = async (req, res) => {
-    res.render('updateProducto');
+    console.log('update Producto')
+
+    //res.render('updateProducto');
     const { id } = req.params;
     const producto = {
         nombre: req.body.nombre,
         codigo: req.body.codigo,
+        cantidad : req.body.cantidad,
         valorCompra: req.body.valorCompra,
         valorVenta: req.body.valorVenta,
     }
@@ -34,7 +40,8 @@ productosController.updateProducto = async (req, res) => {
     res.json({ "status": "Dato de producto actualizado" });
 }
 productosController.deleteProducto = async (req, res) => {
-    res.send('delete Producto');
+   // res.send('delete Producto');
+    console.log('delete Producto')
     await coleccionProductos.findByIdAndRemove(req.params.id);
     res.json({ "status": "Dato de producto borrado" });
 

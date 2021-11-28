@@ -6,6 +6,7 @@ const esquema = new Schema({
 	codigo : { type: String, required: true },
 	valorCompra : { type: Number, required: true },
 	valorVenta : { type: Number, required: true },
+	cantidad : { type: Number, required: true },
 });
 
 module.exports = mongoose.model('Producto', esquema);
