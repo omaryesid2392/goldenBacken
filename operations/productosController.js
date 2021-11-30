@@ -13,14 +13,14 @@ productosController.buscarProductos = async function (req, res) {
     res.json(datos);
 }
 productosController.createProducto = async (req, res) => {
+    console.log('Nuevo productos');
+
     console.log(req.body);
     var producto = new coleccionProductos(req.body);
     console.log(producto);
 
     producto = await producto.save();
-    //res.send("create Producto");
-
-    res.json({ "status": "Producto guardado",producto});
+    res.json({ "status": "Producto guardado"});
 
 }
 productosController.updateProducto = async (req, res) => {

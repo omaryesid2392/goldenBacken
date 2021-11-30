@@ -14,7 +14,7 @@ ventasController.buscarVentas = async (req, res) => {
     const datos = await coleccionVentas.find();
     res.json(datos);
 }
-ventasController.updateVenta = (req, res) => {
+ventasController.updateVenta = async (req, res) => {
     console.log('update Venta')
     const { id } = req.params;
     const venta = {
